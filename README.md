@@ -1,9 +1,8 @@
 # 🍲 Yoripe — Full-Stack Recipe Management Vault
 
-[![Live Demo](https://img.shields.io/badge/Live_App-yoripe--app.vercel.app-2ea44f?style=for-the-badge&logo=vercel)](https://yoripe-app.vercel.app)
-[![Frontend Repo](https://img.shields.io/badge/Frontend_Repo-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/tlim414/yoripe-frontend)
-[![Backend Repo](https://img.shields.io/badge/Backend_Repo-GitHub-181717?style=for-the-badge&logo=github)](https://github.com/tlim414/yoripe-backend)
-
+[![Live App](https://img.shields.io/badge/Live_App-Vercel-2ea44f?style=for-the-badge&logo=vercel)](https://yoripe-app.vercel.app)
+[![Frontend Code](https://img.shields.io/badge/Frontend-Code-181717?style=for-the-badge&logo=github)](https://github.com/tlim414/yoripe-frontend)
+[![Backend Code](https://img.shields.io/badge/Backend-Code-181717?style=for-the-badge&logo=github)](https://github.com/tlim414/yoripe-backend)
 Yoripe is a modern, responsive web application designed for users to search, organize, create, and save personal recipe collections. Built with a decoupled frontend and backend architecture to optimize performance, modularity, and deployment pipelines.
 
 ---
