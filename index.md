@@ -27,6 +27,8 @@ Retrieves all recipes saved by the user returning only title and description of 
 | `q` | String | None | Search query string to match against recipe fields. |
 | `by` | String | `all` | Target field to search/sort by (`all`, `title`, or `ingredient`). |
 
+**Response:** `200/OK`
+
 #### `GET /recipes/:id`
 Retrieves detailed info including title, description, ingredients and instructions of a specific recipe with `id`. 
 
@@ -36,6 +38,8 @@ Retrieves detailed info including title, description, ingredients and instructio
 | :--- | :--- | :--- | :--- |
 | `id` | String | Yes | The unique id of the recipe|
 
+**Response:** `200/OK`
+
 #### `DELETE /recipes/:id`
 Deletes the specified recipe
 
@@ -44,6 +48,8 @@ Deletes the specified recipe
 | Parameter | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `id` | String | Yes | The unique id of the recipe |
+
+**Response:** `200/OK`
 
 #### `PATCH /recipes/:id`
 Partially updates the specified recipe.
@@ -65,6 +71,8 @@ Partially updates the specified recipe.
 | `amount ` | String | Yes | The amount of the ingredient |
 | `unit` | String | Yes | The unit for the amount of the ingredient |
 
+**Response:** `200/OK`
+
 #### `POST /recipes`
 Creates a new recipe under the authenticated user's account
 
@@ -84,6 +92,8 @@ Creates a new recipe under the authenticated user's account
 | `name` | String | Yes | The name of the ingredient |
 | `amount` | String | Yes | The amount of the ingredient |
 | `unit` | String | Yes | The unit for the amount of the ingredient |
+
+**Response:** `201/CREATED`
 
 ## Prisma ORM
 Prisma ORM is used for type safety and its powerful ability to define schemas for databases and migrate the schemas to be applied to the database
