@@ -3,7 +3,7 @@ Yoripe is a full-stack, decoupled recipe vault application designed for high per
 The following page is the docs for the web app and serves as a developer build log on design choices.
 
 # Frontend
-- [Dev log](/frontend-dev-log)
+- [Dev log](frontend-dev-log)
   
 React + Vite and deployed on Vercel. (Vercel was chosen based on cost limitations for the project)
 ## UI
