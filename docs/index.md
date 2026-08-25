@@ -3,13 +3,13 @@ Yoripe is a full-stack, decoupled recipe vault application designed for high per
 The following page is the docs for the web app and serves as a developer build log on design choices.
 
 # Frontend
-- [Dev log]
+- [Dev log](https://github.com/)
 React + Vite and deployed on Vercel. (Vercel was chosen based on cost limitations for the project)
 ## UI
 The UI was built using Material UI, chosen for pre-styled components to allow me to focus on the core app features.
 
 # Backend
-- [Dev log]
+- [Dev log](https://github.com/)
 Node.js and Express hosted on Render to keep the core API independent of UI deployments. (Render was chosen based on cost limitations for the project)
 
 ## Api Reference
