@@ -36,3 +36,7 @@ This project is separated into two dedicated repositories to maintain strict sep
 Yoripe Meta / Landing
 ├── 🎨 yoripe-frontend (React + Vite + Material UI) → Hosted on Vercel
 └── ⚙️ yoripe-backend  (Node.js + Express + Prisma + Postgres) → Hosted on Render
+```
+
+## Documentation
+Click [here](https://tlim414.github.io/yoripe/) to see documentation page.
