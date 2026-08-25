@@ -4,12 +4,14 @@ The following page is the docs for the web app and serves as a developer build l
 
 # Frontend
 - [Dev log](https://github.com/)
+  
 React + Vite and deployed on Vercel. (Vercel was chosen based on cost limitations for the project)
 ## UI
 The UI was built using Material UI, chosen for pre-styled components to allow me to focus on the core app features.
 
 # Backend
 - [Dev log](https://github.com/)
+  
 Node.js and Express hosted on Render to keep the core API independent of UI deployments. (Render was chosen based on cost limitations for the project)
 
 ## Api Reference
