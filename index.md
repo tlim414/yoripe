@@ -31,6 +31,7 @@ Retrieves all recipes saved by the user returning only title and description of 
 Retrieves detailed info including title, description, ingredients and instructions of a specific recipe with `id`. 
 
 **Path Parameters:**
+
 | Parameter | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `id` | String | Yes | The unique id of the recipe|
@@ -39,6 +40,7 @@ Retrieves detailed info including title, description, ingredients and instructio
 Deletes the specified recipe
 
 **Path Parameters:**
+
 | Parameter | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `id` | String | Yes | The unique id of the recipe |
@@ -47,14 +49,16 @@ Deletes the specified recipe
 Partially updates the specified recipe.
 
 **Request Body (application/json):**
+
 | Field | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
-| `title` | String | Yes | The name of the recipe |
+| `title` | String | No | The name of the recipe |
 | `description ` | String | No | A short description of the recipe |
-| `instructions` | String[] | Yes | Steps of the recipe, where each step corresponds to the index of the list |
-| `ingredients` |  `IngredientArray` | Yes | The list of ingredients
+| `instructions` | String[] | No | Steps of the recipe, where each step corresponds to the index of the list |
+| `ingredients` |  `IngredientArray` | No | The list of ingredients
 
 **`IngredientArray`:**
+
 | Field | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `name` | String | Yes | The name of the ingredient |
@@ -65,18 +69,20 @@ Partially updates the specified recipe.
 Creates a new recipe under the authenticated user's account
 
 **Request Body (application/json):**
+
 | Field | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `title` | String | Yes | The name of the recipe |
-| `description ` | String | No | A short description of the recipe |
+| `description` | String | No | A short description of the recipe |
 | `instructions` | String[] | Yes | Steps of the recipe, where each step corresponds to the index of the list |
 | `ingredients` |  `IngredientArray` | Yes | The list of ingredients
 
 **`IngredientArray`:**
+
 | Field | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `name` | String | Yes | The name of the ingredient |
-| `amount ` | String | Yes | The amount of the ingredient |
+| `amount` | String | Yes | The amount of the ingredient |
 | `unit` | String | Yes | The unit for the amount of the ingredient |
 
 ## Prisma ORM
