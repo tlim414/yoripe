@@ -226,6 +226,6 @@ Yoripe follows a feature-branch workflow to maintain stable production deploymen
 
 
 # Future Roadmap
-- Extracting recipe information using vision LLM
-- Explore page to view nearby recipes and save
+- Extracting recipe information using vision LLM.
+- Explore page to view nearby recipes and save.
 
