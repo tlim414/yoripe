@@ -49,6 +49,7 @@ model Recipe {
   updatedAt    DateTime     @updatedAt
 }
 ```
+
 | Field | Type | Attributes | Nullable| Description |
 | :--- | :--- | :--- | :--- | :--- |
 | id | String | @id.uuid() | No | Primary Key |
@@ -76,6 +77,7 @@ model Ingredient {
 
 }
 ```
+
 | Field | Type | Attributes | Nullable| Description |
 | :--- | :--- | :--- | :--- | :--- |
 | id | String | @id.uuid() | No | Primary Key|
@@ -85,7 +87,7 @@ model Ingredient {
 
 ## Authentication
 Integrated via clerk.
-***Authentication Flow:**
+**Authentication Flow:**
 On landing page users are able to sign in or sign up taking them to Clerk's account portal. Upon sign in users are redirected to /dashboard.
 Backend requests handled by TanStack Query and Axios, with Clerk providing the JWT for authentication for requests.
 TanStack Query manages the recipe states by caching in memory for UI updates upon receiving data from Axios network calls.
