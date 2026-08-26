@@ -189,7 +189,7 @@ Creates a new recipe under the authenticated user's account
 **Response:** `201/CREATED`
 
 # Linter & Formatting
-Linting and formatting aligns with **ESLint** standards and formatted using **Prettier** through **pnpm** scripts
+Linting and formatting aligns with **ESLint** standards and formatted using **Prettier** through **pnpm** scripts.
 
 # Build & Development Workflow
 ```text
@@ -217,8 +217,8 @@ Yoripe follows a feature-branch workflow to maintain stable production deploymen
 
 #### Workflow Rules:
 1. All active development occurs on dedicated `feature/` or `fix/` branches.
-2. Direct commits to `main` are restricted to documentation and patch updates.
-3. Merges into `main` trigger automated builds and database migration checks via Prisma.
+2. Direct commits to `main` are restricted.
+3. Merges into `main` trigger automated builds.
 
 # Dev Logs
 - [Frontend Dev Log](frontend-dev-log)
