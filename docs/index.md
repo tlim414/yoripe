@@ -7,7 +7,7 @@ The following page is the docs for the web app and serves as a developer build l
 - [Deployment](#deployment)
 - [API Reference](#api-reference)
 - [Linter & Formatting](#linter--formatting)
-- [Build Process & Development Workflow](#build--dev-workflow)
+- [Build Process & Development Workflow](#build--development-workflow)
 - [Dev Logs](#dev-logs)
 - [Future Roadmap](#future-roadmap)
 
@@ -184,7 +184,7 @@ Creates a new recipe under the authenticated user's account
 # Linter & Formatting
 Linting and formatting aligns with **ESLint** standards and formatted using **Prettier** through **pnpm** scripts
 
-# Build & Dev Workflow
+# Build & Development Workflow
 ```text
 [ Local Dev Environment ]
        │
