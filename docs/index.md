@@ -18,6 +18,7 @@ React + Vite
 - Also scales better when app grows larger, through Hot Module Replacement, updating browser with changes almost instantly. 
 
 **Programming Language:** Typescript
+
 **UI:** Material UI + Tailwind CSS
 
 ## Backend
