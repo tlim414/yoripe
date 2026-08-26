@@ -97,11 +97,14 @@ TanStack Query manages the recipe states by caching in memory for UI updates upo
 # Deployment
 **Vercel (Frontend):**
 - Decoupled frontend to make UI tweaks isolated from deploying backend, keeping pipelines faster.
+
 **Render (Backend):**
+  
 **Neon (Serverless PostgreSQL Database):**
 - Neon requires a cold start when compute scales to zero resulting in an initial delay of 500ms to 2s but this was actually more of a pro than a con to keep hosting costs to close to $0.
 - Neon was also chosen because of the ability to separate live and test database environments should the need arise.
 - Although Neon has a disadvantage when scaling to high read/write traffic, considering Yoripe is a personal project, this was a non-issue.
+
 # API Reference
 All requests require a valid Clerk authentication JWT in the `Authorization` header (`Bearer <token>`). Endpoints automatically scope read and write operations to the authenticated user's ID.
 
