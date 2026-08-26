@@ -6,26 +6,82 @@ The following page is the docs for the web app and serves as a developer build l
 - [Architecture & Tech Stack](#architecture)
 - [Deployment](#deployment)
 - [API Reference](#api-reference)
-- [Build Process & Development Workflow](#build-&-dev-workflow)
+- [Linter & Formatting](#linter--formatting)
+- [Build Process & Development Workflow](#build--dev-workflow)
 - [Dev Logs](#dev-logs)
 - [Future Roadmap](#future-roadmap)
 
 # Architecture
 ## Frontend
 React + Vite
+- Vite allows for faster dev build and peformance, starting the server faster. Vite uses native browser imports to serve code-on-demand resulting in faster server start times.
+- Also scales better when app grows larger, through Hot Module Replacement, updating browser with changes almost instantly. 
+
 **Programming Language:** Typescript
 **UI:** Material UI + Tailwind CSS
 
 ## Backend
 Node.js + Express
+
 **Programming Language:** Typescript
 
 ## Database
 PostgreSQL + Prisma ORM (data modelling)
+- Prisma ORM is used for type safety and its powerful ability to define schemas for databases and migrate the schemas to be applied to the database
 
-### Data Models
-**Recipes:**
-**Ingredients:**
+### Database Schema
+#### Entity Relationship Overview
+* **User (`users`):** Scoped by Clerk User ID (`userId`). One-to-Many relationship with `Recipe`.
+* **Recipe (`recipes`):** Belongs to one User. One-to-Many relationship with `Ingredient`.
+* **Ingredient (`ingredients`):** Belongs to one Recipe.
+
+#### `Recipe` Table
+Stores the core metadata and instructions steps for a saved recipe
+```prisma
+model Recipe {
+  id           String       @id @default(uuid())
+  userId       String
+  title        String
+  description  String?
+  instructions String[]
+  ingredients  Ingredient[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+```
+| Field | Type | Attributes | Nullable| Description |
+| :--- | :--- | :--- | :--- | :--- |
+| id | String | @id.uuid() | No | Primary Key |
+| userId | String | indexed | No | Foreign Key mapping to the Clerk authentication user |
+| title | String | - | No | Recipe Title |
+| description | String | - | Yes | Optional description of the recipe |
+| instructions | String[] | - | No | Array of instruction steps where array index maps to step order |
+| ingredients | Ingredient[] | relation | No | Related list of ingredient objects |
+| createdAt | DateTime | @default(now()) | No | Creation timestamp |
+| updatedAt | DateTime | @updatedAt | No | Automatically updated on record changes |
+
+
+
+
+#### `Ingredient` Table
+Stores the discrete ingredient components tied to a specific recipe.
+```prisma
+model Ingredient {
+  id       String @id @default(uuid())
+  recipeId String
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: Cascade)
+  name     String
+  amount   Float
+  unit     String
+
+}
+```
+| Field | Type | Attributes | Nullable| Description |
+| :--- | :--- | :--- | :--- | :--- |
+| id | String | @id.uuid() | No | Primary Key|
+| name | String | - | No | Name of the ingredient |
+| amount | Float | - | No | The amount of the ingredient |
+| unit | String | - | No | The unit for the amount of the ingredient |
 
 ## Authentication
 Integrated via clerk.
@@ -36,9 +92,10 @@ TanStack Query manages the recipe states by caching in memory for UI updates upo
 
 # Deployment
 **Vercel (Frontend):**
-**Render (Backend):** 
+- Decoupled frontend to make UI tweaks isolated from deploying backend, keeping pipelines faster.
+**Render (Backend):**
 **Neon (Serverless PostgreSQL Database):**
-- Neon requires a cold start when compute scales to zero resulting in an intial delay of 500ms to 2s but this was actually more of a pro than a con to keep hosting costs to close to $0.
+- Neon requires a cold start when compute scales to zero resulting in an initial delay of 500ms to 2s but this was actually more of a pro than a con to keep hosting costs to close to $0.
 - Neon was also chosen because of the ability to separate live and test database environments should the need arise.
 - Although Neon has a disadvantage when scaling to high read/write traffic, considering Yoripe is a personal project, this was a non-issue.
 # API Reference
@@ -88,7 +145,7 @@ Partially updates the specified recipe.
 | Field | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `title` | String | No | The name of the recipe |
-| `description ` | String | No | A short description of the recipe |
+| `description` | String | No | A short description of the recipe |
 | `instructions` | String[] | No | Steps of the recipe, where each step corresponds to the index of the list |
 | `ingredients` |  `IngredientArray` | No | The list of ingredients
 
@@ -124,7 +181,37 @@ Creates a new recipe under the authenticated user's account
 
 **Response:** `201/CREATED`
 
+# Linter & Formatting
+Linting and formatting aligns with **ESLint** standards and formatted using **Prettier** through **pnpm** scripts
+
 # Build & Dev Workflow
+```text
+[ Local Dev Environment ]
+       │
+       ├─► Frontend: Vite Dev Server (pnpm dev)
+       ├─► Backend: Express API + Prisma Client
+       └─► Database: Local / Hosted PostgreSQL
+       │
+[ Production Pipeline ]
+       ├─► GitHub (main branch push)
+       ├─► Vercel Pipeline (Static Build + CDN Edge Deployment)
+       └─► Render Pipeline (Express API Node Environment + Prisma Migration Step)
+```
+## Branching & Deployment Strategy
+
+Yoripe follows a feature-branch workflow to maintain stable production deployments and isolated development environments.
+
+| Branch | Target Environment | Automation / Triggers |
+| :--- | :--- | :--- |
+| `main` | Production | Auto-deploys frontend to Vercel and backend to Render on push. |
+| `feature/*` | Local / Preview | Isolated feature development. Triggers Vercel preview deployments on PRs |
+| `fix/*` | Local / Preview | Isolated bug fixes |
+| `chore/*` | Local / Preview | Project maintenance, dependency upgrades, build configuration, tooling updates that do not alter source code behaviour |
+
+#### Workflow Rules:
+1. All active development occurs on dedicated `feature/` or `fix/` branches.
+2. Direct commits to `main` are restricted to documentation and patch updates.
+3. Merges into `main` trigger automated builds and database migration checks via Prisma.
 
 # Dev Logs
 - [Frontend Dev Log](frontend-dev-log)
