@@ -88,6 +88,7 @@ model Ingredient {
 
 ## Authentication
 Integrated via clerk.
+
 **Authentication Flow:**
 On landing page users are able to sign in or sign up taking them to Clerk's account portal. Upon sign in users are redirected to /dashboard.
 Backend requests handled by TanStack Query and Axios, with Clerk providing the JWT for authentication for requests.
