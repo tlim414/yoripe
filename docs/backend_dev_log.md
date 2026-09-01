@@ -41,6 +41,9 @@ Error handling:
 -	Returns `400 Bad Request` if no image file is present in the payload.
 -	Returns `500 Internal Server Error` with details if the LLM request fails.
 
+Update `.env`
+- Added `GEMINI_API_KEY` environment variable
+
 ## Configure EsLint and Prettier
 ### August 11
 - Added EsLint and Prettier to backend codebase
