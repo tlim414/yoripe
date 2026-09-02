@@ -30,8 +30,8 @@ export const UNIT_ALIASES: Record<string, UnitType> = {
 - Updated to regex validation on input change to support integers, decimals, mixed fractions, and slash-separated fractions (e.g., 3, 2.75, 1 1/3, 3/5).
 - Updated the "Save" button's disabled state validation to block submission when amount formats are invalid.
 
-
-
+## MVP
+### July21 - August 14
 
 
 
