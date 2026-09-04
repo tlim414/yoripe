@@ -7,6 +7,9 @@ permalink: /frontend-dev-log
 # Frontend Dev Log
 This page serves as a logbook for the frontend changes
 
+## WIP
+### September 4
+- Update SignIn redirectURL to `/my-recipes` and not `/dashboard`
 
 ## Standardize units from image extraction response data
 ### August 30
@@ -20,9 +23,6 @@ export const UNIT_ALIASES: Record<string, UnitType> = {
   cups: UNITS.CUPS,
   ...
 ```
-## WIP
-###
-- Update SignIn redirectURL to `/my-recipes` and not `/dashboard`
 
 ## Add Image Uploading to Backend
 ### August 28
